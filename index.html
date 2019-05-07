@@ -5,21 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>To Do List</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <input id="input">
     <button onClick="submit()">Submit</button>
     
-    <ul>
+    <ul id="todo">
         
     </ul>
 
     <script>
+
+    var count = 1;
+
     function submit() {
-    var item = document.getElementById("input").value
-    console.log(item);
+        var item = document.getElementById("input").value
+        console.log(item);
+        var list = document.createElement("li")
+        list.id = count
+        item = document.createTextNode(item)
+        list.appendChild(item)
+        var button = document.createElement("button");
+        button.innerText = "X"
+        button.className = "btn btn-danger"
+        button.id = count
+        console.log(window.count)
+        count = count + 1
+        list.appendChild(button)
+        document.getElementById("todo").appendChild(list)
+        document.getElementById("input").value = ""
     }
+
     </script>
 
 </body>
