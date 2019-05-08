@@ -21,7 +21,7 @@
             padding: 20px;
         }
         li:nth-child(2n+1) {
-            background: rgb(197, 195, 195);
+            background: rgb(221, 220, 220);
         } 
         button{
             margin: 0 10px;
@@ -78,7 +78,12 @@
     function check(number) {
         console.log(number);
         x = document.getElementById(number)
-        x.className += "check";
+        if (x.className != "check") {
+            x.className = "check";
+        } else {
+            x.className = "";
+        }
+        
     }
 
     </script>
