@@ -8,6 +8,25 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <style>
+        li {
+            padding: 20px;
+        }
+        li:nth-child(2n+1) {
+            background: rgb(197, 195, 195);
+        } 
+        button{
+            margin: 0 10px;
+        }
+        .check {
+            text-decoration:line-through;
+        }
+
+        .right {
+            float: right;
+        }
+    </style>
 </head>
 <body>
 
@@ -30,7 +49,7 @@
         item = document.createTextNode(item)
         list.appendChild(item)
         var span = document.createElement('span');
-        span.innerHTML = `<button class="btn btn-danger" id="${count}" onclick="del(${count})">X</button>`;
+        span.innerHTML = `<button class="right btn btn-danger" id="${count}" onclick="del(${count})">&#10008;</button> <button class="right btn btn-success" id="${count}" onclick="check(${count})">&#10004;</button>`;
         console.log(window.count)
         count = count + 1
         list.appendChild(span)
@@ -42,6 +61,12 @@
         console.log(number);
         x = document.getElementById(number)
         x.parentNode.removeChild(x);
+    }
+
+    function check(number) {
+        console.log(number);
+        x = document.getElementById(number)
+        x.className += "check";
     }
 
     </script>
